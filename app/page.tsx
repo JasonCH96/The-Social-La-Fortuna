@@ -13,7 +13,7 @@ export default function Home() {
       <div className="hero-shade" />
       <header className="site-header">
         <a className="brand" href="#top" aria-label="The Social Fortuna — Home"><span className="brand-mark">TS</span><span className="brand-name">THE SOCIAL<br />FORTUNA</span></a>
-        <nav aria-label="Main navigation"><a href="#stay">Stay</a><a href="#experience">Experience</a><a href="#location">Location</a></nav>
+        <nav aria-label="Main navigation"><a href="#stay">Stay</a><a href="#experience">Experience</a><a href="/tours">Tours</a><a href="#location">Location</a></nav>
         <a className="book" href={bookingUrl} target="_blank" rel="noreferrer">Book your stay <ArrowUpRight size={16} /></a>
       </header>
       <div className="hero-copy">
