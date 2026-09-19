@@ -1,6 +1,5 @@
 'use client';
 
-import { ArrowUpRight, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
 export type Tour = { title: string; category: string; image: string };
@@ -37,20 +36,20 @@ export default function TourCatalog({ tours }: { tours: Tour[] }) {
         <button className="tour-card-image" onClick={() => setActive(index)} aria-label={`View full information for ${tour.title}`}>
           <img src={tour.image} alt={`${tour.title} information card`} loading="lazy" />
           <span className="tour-number">{String(index + 1).padStart(2, '0')}</span>
-          <span className="tour-expand">View full card <ArrowUpRight size={15} /></span>
+          <span className="tour-expand">View full card ↗</span>
         </button>
         <div className="tour-card-copy"><p>{tour.category}</p><h3>{tour.title}</h3></div>
       </article>)}
     </div>
 
     {active !== null && <div className="tour-modal" role="dialog" aria-modal="true" aria-label={visible[active].title} onClick={() => setActive(null)}>
-      <button className="modal-close" onClick={() => setActive(null)} aria-label="Close tour card"><X /></button>
-      <button className="modal-arrow left" onClick={e => { e.stopPropagation(); move(-1); }} aria-label="Previous tour"><ChevronLeft /></button>
+      <button className="modal-close" onClick={() => setActive(null)} aria-label="Close tour card">×</button>
+      <button className="modal-arrow left" onClick={e => { e.stopPropagation(); move(-1); }} aria-label="Previous tour">‹</button>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <img src={visible[active].image} alt={`${visible[active].title} full information card`} />
-        <div><p><span>{visible[active].category}</span>{active + 1} / {visible.length}</p><a href={whatsapp} target="_blank" rel="noreferrer">Ask about this tour <ArrowUpRight size={16} /></a></div>
+        <div><p><span>{visible[active].category}</span>{active + 1} / {visible.length}</p><a href={whatsapp} target="_blank" rel="noreferrer">Ask about this tour ↗</a></div>
       </div>
-      <button className="modal-arrow right" onClick={e => { e.stopPropagation(); move(1); }} aria-label="Next tour"><ChevronRight /></button>
+      <button className="modal-arrow right" onClick={e => { e.stopPropagation(); move(1); }} aria-label="Next tour">›</button>
     </div>}
   </>;
 }
